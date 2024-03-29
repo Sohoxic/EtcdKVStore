@@ -17,6 +17,15 @@ curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/
 tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
 ```
 
+<div align="center">
+
+> This is how it should appear by the end of installation:
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/installation.png" style="max-width: 100%; height: auto;" />
+
+</div>
+
+
 ## Making etcd Accessible System-wide
 
 After downloading and extracting etcd, you may encounter a message indicating `etcd` command is not found. This is because the binary is not in your system's `PATH`. To resolve this:
