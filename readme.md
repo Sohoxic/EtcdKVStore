@@ -25,7 +25,6 @@ tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --s
 
 </div>
 
-
 ## Making etcd Accessible System-wide
 
 After downloading and extracting etcd, you may encounter a message indicating `etcd` command is not found. This is because the binary is not in your system's `PATH`. To resolve this:
@@ -71,6 +70,15 @@ etcd
 etcdctl put mykey myvalue
 etcdctl get mykey
 ```
+
+<div align="center">
+
+> Getting and Setting K-V pair in local system:
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/RetrievingKVpair.png" style="max-width: 100%; height: auto;" />
+
+</div>
+<br/>
 
 For detailed instructions, refer to the [etcd Quickstart Guide](https://etcd.io/docs/v3.5/quickstart/).
 
