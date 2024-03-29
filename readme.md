@@ -103,6 +103,10 @@ To run the `script.py` file and interact with the etcd cluster, perform the foll
 > ```
 > pip install protobuf==3.20.0
 > ```
+ > or you can set the protocol buffers env. variable:
+> ```
+> set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
+> ```
 
 - [X] Run script.py
 ```
