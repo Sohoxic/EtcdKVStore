@@ -89,6 +89,26 @@ etcdctl get mykey
 
 For detailed instructions, refer to the [etcd Quickstart Guide](https://etcd.io/docs/v3.5/quickstart/).
 
+## Running the `script.py`
+
+To run the `script.py` file and interact with the etcd cluster, perform the following steps:
+
+- [X] Ensure the `etcd` service is running.
+- [X] Install the `etcd3` Python package if not already installed:
+
+```
+  pip install etcd3
+```
+ > If you encounter errors related to the protobuf library, downgrade the protobuf package to version 3.20.x or lower:
+> ```
+> pip install protobuf==3.20.0
+> ```
+
+- [X] Run script.py
+```
+python script.py
+```
+
 ## Note
 
 - This guide focuses on development and testing environments. For production setups, consult the official etcd documentation for security, clustering, and configuration best practices.
