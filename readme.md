@@ -1,5 +1,12 @@
 
-# Week1: etcd Installation and Single-Node Cluster Setup Guide
+# Week1: 
+## Todo
+- [X] etcd Installation
+- [X] Single-Node Cluster Setup Guide
+- [ ] Write functions to List all keys using etcd client library.
+- [ ] Get the value for a specific key provided by the user.
+- [ ] Put a key-value pair into etcd, allowing users to specify both key
+and value.
 
 This guide provides a comprehensive overview of installing etcd, configuring your system to run it, and setting up a single-node etcd cluster on a Linux system.
 
