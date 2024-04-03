@@ -1,60 +1,106 @@
-from unittest.mock import patch, MagicMock
-import unittest
-from io import StringIO
-from etcd_script import list_all_keys, get_key_and_print_value, get_key_and_value_and_put, delete_key
 
-class TestEtcdScript(unittest.TestCase):
+# run etcd.exe first in terminal 1
+# set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python in terminal 2
+# run python script.py in terminal 2
 
-    @patch('etcd_script.etcd3.client')
-    def test_list_all_keys(self, mock_etcd_client):
-        # Setup the mock to return an iterator of tuples when get_all is called
-        mock_etcd_client.return_value.get_all.return_value = iter([
-            (b'key1', MagicMock(key=b'key1')),
-            (b'key2', MagicMock(key=b'key2'))
-        ])
+import etcd3
+
+def list_all_keys(etcd):
+    try:
+        key_list = list(etcd.get_all())
+        if not key_list:
+            print("\nNo keys present!")
+        else:
+            print("\nList of Keys:")
+            for value, metadata in key_list:
+                print(metadata.key.decode("utf-8"))
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+def get_key_and_print_value(etcd):
+    try:
+        print("\nEnter the key whose value you want to find:")
+        input_key = input()
+        value, _ = etcd.get(input_key)
+        if value is None:
+            print("\nKey does not exist!")
+        else:
+            print("\nThe value is:", value.decode("utf-8"))
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+def get_key_and_value_and_put(etcd):
+    try:
+        print("\nEnter the key to be inserted:")
+        input_key = input()
+        print("\nEnter the value to be associated with the key:")
+        input_value = input()
+        etcd.put(input_key, input_value)
+        print("\nKey-value pair added successfully.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+def delete_key(etcd):
+    try:
+        print("\nEnter the key to be deleted:")
+        input_key = input()
+        deleted = etcd.delete(input_key)
+        if deleted:
+            print("\nKey deleted successfully!")
+        else:
+            print("\nKey not found!")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+def range_scan_keys(etcd):
+    try:
+        print("\nEnter the start key for the range scan:")
+        start_key = input()
+        print("\nEnter the end key for the range scan:")
+        end_key = input()
         
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            list_all_keys(mock_etcd_client())
-            self.assertIn("List of Keys:\nkey1\nkey2", mock_stdout.getvalue().strip())
+        print("\nFetching keys and values within the range...")
+        key_list = list(etcd.get_range(start_key, end_key))
+        if not key_list:
+            print("\nNo keys present in the specified range!")
+        else:
+            print("\nList of Keys and Values within the range:")
+            for value, metadata in key_list:
+                print(f"Key: {metadata.key.decode('utf-8')}, Value: {value.decode('utf-8')}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-    @patch('etcd_script.etcd3.client')
-    def test_get_key_and_print_value_existing(self, mock_etcd_client):
-        mock_etcd_client.return_value.get.return_value = (b'value', MagicMock())
-        
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout, patch('sys.stdin', StringIO("existing_key\n")):
-            get_key_and_print_value(mock_etcd_client())
-            self.assertIn("The value is: value", mock_stdout.getvalue().strip())
+def main_menu(etcd):
+    while True:
+        print("\nPlease choose an option:")
+        print("1: List all keys")
+        print("2: Get the value of a key")
+        print("3: Put a key-value pair")
+        print("4: Delete a key")
+        print("5: Range scan for keys")
+        print("6: Exit")
+        choice = input("> ")
 
-    @patch('etcd_script.etcd3.client')
-    def test_get_key_and_print_value_non_existing(self, mock_etcd_client):
-        mock_etcd_client.return_value.get.return_value = (None, None)
-        
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout, patch('sys.stdin', StringIO("non_existing_key\n")):
-            get_key_and_print_value(mock_etcd_client())
-            self.assertIn("Key does not exist!", mock_stdout.getvalue().strip())
+        if choice == '1':
+            list_all_keys(etcd)
+        elif choice == '2':
+            get_key_and_print_value(etcd)
+        elif choice == '3':
+            get_key_and_value_and_put(etcd)
+        elif choice == '4':
+            delete_key(etcd)
+        elif choice == '5':
+            range_scan_keys(etcd)
+        elif choice == '6':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, please try again.")
 
-    @patch('etcd_script.etcd3.client')
-    def test_get_key_and_value_and_put(self, mock_etcd_client):
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout, patch('sys.stdin', StringIO("new_key\nnew_value\n")):
-            get_key_and_value_and_put(mock_etcd_client())
-            self.assertIn("Key-value pair added successfully.", mock_stdout.getvalue().strip())
+if __name__ == "__main__":
+    try:
+        etcd_client = etcd3.client()  # You can add host and port if needed
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-    @patch('etcd_script.etcd3.client')
-    def test_delete_key_existing(self, mock_etcd_client):
-        mock_etcd_client.return_value.delete.return_value = True
-        
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout, patch('sys.stdin', StringIO("key_to_delete\n")):
-            delete_key(mock_etcd_client())
-            self.assertIn("Key deleted successfully!", mock_stdout.getvalue().strip())
-
-    @patch('etcd_script.etcd3.client')
-    def test_delete_key_non_existing(self, mock_etcd_client):
-        mock_etcd_client.return_value.delete.return_value = False
-        
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout, patch('sys.stdin', StringIO("non_existing_key\n")):
-            delete_key(mock_etcd_client())
-            self.assertIn("Key not found!", mock_stdout.getvalue().strip())
-
-if __name__ == '__main__':
-    unittest.main()
-
+    main_menu(etcd_client)
