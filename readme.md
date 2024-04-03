@@ -28,7 +28,7 @@ tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --s
 
 > This is how it should appear by the end of installation:
 
-  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/installation.png" style="max-width: 100%; height: auto;" />
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week1/installation.png" style="max-width: 100%; height: auto;" />
 
 </div>
 
@@ -82,7 +82,7 @@ etcdctl get mykey
 
 > Getting and Setting K-V pair in local system:
 
-  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/RetrievingKVpair.png" style="max-width: 100%; height: auto;" />
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week1/RetrievingKVpair.png" style="max-width: 100%; height: auto;" />
 
 </div>
 <br/>
@@ -112,6 +112,15 @@ To run the `script.py` file and interact with the etcd cluster, perform the foll
 ```
 python script.py
 ```
+
+<div align="center">
+
+> Output:
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week1/python1.png" style="max-width: 100%; height: auto;" />
+
+</div>
+<br/>
 
 ## Note
 
