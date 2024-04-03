@@ -145,6 +145,25 @@ python script.py
 </div>
 <br/>
 
+# Week3: Testing
+## Todo
+- [X] Write unit tests for program's functionalities
+
+Run script.py
+```
+python script.py
+```
+
+
+<div align="center">
+
+> Running Unit Tests
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week3/run-week3.png" style="max-width: 100%; height: auto;" />
+
+</div>
+<br/>
+
 
 ## Note
 
