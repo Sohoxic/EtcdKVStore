@@ -1,5 +1,5 @@
 
-# Week1: 
+# Week1: Setting Up and Understanding etcd
 ## Todo
 - [X] etcd Installation
 - [X] Single-Node Cluster Setup Guide
@@ -121,6 +121,30 @@ python script.py
 
 </div>
 <br/>
+
+
+# Week2: Adding Features and Error Handling
+## Todo
+- [X] Write function to delete keys.
+- [x] Write function to implement range scan.
+- [X] Error handling for the functions
+- [X] Design a CLI.
+
+Run script.py
+```
+python script.py
+```
+
+
+<div align="center">
+
+> CLI:
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week2/run-week2.png" style="max-width: 100%; height: auto;" />
+
+</div>
+<br/>
+
 
 ## Note
 
