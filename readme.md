@@ -1,3 +1,13 @@
+<div align="center">
+  
+# High Level Design Diagram
+   <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/HLD/hld2.png" style="max-width: 100%; height: auto;" />
+   
+> Components of the distributed k-v store
+>   <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/HLD/hld1.png" style="max-width: 100%; height: auto;" />
+
+</div>
+
 
 # Week1: Setting Up and Understanding etcd
 ## Todo
