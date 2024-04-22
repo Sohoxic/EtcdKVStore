@@ -158,6 +158,7 @@ python script.py
 # Week3: Testing
 ## Todo
 - [X] Write unit tests for program's functionalities
+- [X] Multi-Node cluster set up 
 
 Run script.py
 ```
@@ -174,6 +175,30 @@ python script.py
 </div>
 <br/>
 
+<div align="center">
+
+> Multi Node Cluster Setup Running.
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week3/multiple_nodes_running.png" style="max-width: 100%; height: auto;" />
+
+</div>
+
+<div align="center">
+
+> Multi Node Cluster Before Deleting Leader.
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week3/before_deleting_leader.png" style="max-width: 100%; height: auto;" />
+
+</div>
+
+<div align="center">
+
+> Multi Node Cluster After Deleting Leader.
+
+  <img alt="Demo" src="https://github.com/Sohoxic/PES2UG21CS505-PES2UG21CS532-PES2UG21CS542-PES2UG21CS546-Building-a-distributed-k-v-store-with-etcd/blob/main/Assets/week3/after_deleating_leader.png" style="max-width: 100%; height: auto;" />
+
+</div>
+<br/>
 
 ## Note
 
